@@ -1,4 +1,8 @@
+if [[ $(docker-machine status default) != Running ]]; then
+	docker-machine start default
+fi
 eval $(docker-machine env default)
+
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH

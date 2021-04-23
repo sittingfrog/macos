@@ -18,15 +18,21 @@
 # brew install --cask docker
 
 brew install virtualbox --cask
+echo '*** STOP *******************************************'
+echo 'Go to Settings and enable Oracle Virtualbox installation Permissions'
+echo 'Press any key to when finished...'; read -k1 -s;
+brew install virtualbox --cask
+brew install virtualbox --cask
+
 brew install docker-machine
 brew install docker
 brew install docker-compose
 docker-machine create --driver virtualbox default
-docker-machine stop
+docker-machine stop default
 vboxmanage modifyvm default --usb on
-docker-machine start
+vboxmanage usbfilter add 0 --target default --name trezor --vendorid 0x1209 --productid 0x53c1
+docker-machine start default
 eval $(docker-machine env default)
 
 # brew uninstall virtualbox --force --zap
 
-vboxmanage usbfilter add 0 --target default --name ftdi --vendorid 0x1209 --productid 0x53c1
