@@ -106,3 +106,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cdc="cd ~/code"
+
+alias dml="docker-machine ls"
