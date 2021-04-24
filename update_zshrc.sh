@@ -1,1 +1,1 @@
-cp $HOME/.zshrc .assets/.zshrc
+cp $HOME/.zshrc ./assets/.zshrc
