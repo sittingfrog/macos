@@ -21,3 +21,4 @@ TODO:
 
 Automatically add favourites in finder bar
 Auto-set apps in dock
+Atomatically set computer name instead of going to system preverences -> sharing
