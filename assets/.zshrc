@@ -105,8 +105,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Directories
 alias cdc="cd ~/code"
 
-alias dml="docker-machine ls"
+# Docker Machine
+alias dmenv="eval $(docker-machine env)"
+alias dmls="docker-machine ls"
 alias dmup="docker-machine start"
 alias dmdn="docker-machine stop"
+
