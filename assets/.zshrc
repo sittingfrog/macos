@@ -108,3 +108,5 @@ source $ZSH/oh-my-zsh.sh
 alias cdc="cd ~/code"
 
 alias dml="docker-machine ls"
+alias dmup="docker-machine start"
+alias dmdn="docker-machine stop"
