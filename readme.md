@@ -1,1 +1,24 @@
-remember to grant terminal full disk access permissions in `Settings->Security&Privacy` (http://biercoff.com/how-to-fix-docker-machine-installation-on-mac-os-x/)
+# STEP #
+Open OSX `System Preferences` and leave it open for later use
+Create code directory
+`mkdir $HOME/code`
+
+# STEP #
+Move `osx_setup` folder into `$HOME/code`
+
+# STEP #
+Install basic tools
+`source install_basic_tools.sh`
+
+# STEP #
+Enable full disk access permissions for `iTerm` in `System Preferences -> Security & Privacy` (http://biercoff.com/how-to-fix-docker-machine-installation-on-mac-os-x/)
+
+# STEP #
+Install applications
+`source install_applications.sh`
+
+TODO:
+
+Automatically generate ssh keys
+Automatically add favourites in finder bar
+Auto-set apps in dock
