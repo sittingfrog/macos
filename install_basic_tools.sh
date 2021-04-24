@@ -3,7 +3,7 @@
 # Install basic tools to simplify the rest of the installation
 
 source ./basic_tools/homebrew.sh
-source ./basic_tools/git.sh
+# source ./basic_tools/git.sh
 source ./basic_tools/iterm.sh
 source ./basic_tools/zsh.sh
 source ./basic_tools/generate_ssh_keys.sh
