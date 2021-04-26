@@ -22,3 +22,4 @@ TODO:
 Automatically add favourites in finder bar
 Auto-set apps in dock
 Atomatically set computer name instead of going to system preverences -> sharing
+Automatically set default finder view to List type

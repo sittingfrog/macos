@@ -110,7 +110,7 @@ source $ZSH/oh-my-zsh.sh
 alias cdc="cd ~/code"
 
 # Docker Machine
-alias dmenv="eval $(docker-machine env)"
+alias dmenv='eval $(docker-machine env); echo DOCKER_TLS_VERIFY = $DOCKER_TLS_VERIFY; echo DOCKER_HOST = $DOCKER_HOST; echo DOCKER_CERT_PATH = $DOCKER_CERT_PATH; echo DOCKER_MACHINE_NAME = $DOCKER_MACHINE_NAME'
 alias dmls="docker-machine ls"
 alias dmup="docker-machine start"
 alias dmdn="docker-machine stop"
