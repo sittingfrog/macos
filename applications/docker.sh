@@ -11,4 +11,4 @@ vboxmanage modifyvm default --usb on
 docker-machine start default
 eval $(docker-machine env default)
 # hid.Device(vid=0x1209, pid=0x53c1)
-usb.core.find(idVendor=0x1209, idProduct=0x53c1)
+# usb.core.find(idVendor=0x1209, idProduct=0x53c1)
