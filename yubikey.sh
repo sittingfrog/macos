@@ -1,3 +1,4 @@
+#!/bin/bash
 
 brew install ykman
 brew install yubikey-personalization hopenpgp-toolspinentry-mac
