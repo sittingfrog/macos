@@ -1,18 +1,10 @@
+#!/bin/bash
+
 defaults write com.apple.finder AppleShowAllFiles -string YES
 defaults write com.apple.finder useRelativeDates -int 0
-
-# ListViewSettings calculateAllSizes -int 1
-# ShowRecentTags -int 0
-# 
-#     ShowExternalHardDrivesOnDesktop -int 1
-#     ShowHardDrivesOnDesktop -int 1
-#     ShowMountedServersOnDesktop -int 1
-#     ShowRecentTags -int 0
-#     ShowRemovableMediaOnDesktop -int 1
-#     SidebarPlacesSectionDisclosedState = 1;
-#     SidebarShowingSignedIntoiCloud = 1;
-#     SidebarShowingiCloudDesktop = 0;
-#     SidebariCloudDriveSectionDisclosedState = 1;
-# 
-# 
-#  com.apple.preference.general
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -int 1
+defaults write com.apple.finder ShowHardDrivesOnDesktop -int 1
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -int 1
+defaults write com.apple.finder ShowMountedServersOnDesktop -int 1
+defaults write com.apple.finder ShowRecentTags -int 0
+defaults write com.apple.finder FXPreferredViewStyle -string Nlsv

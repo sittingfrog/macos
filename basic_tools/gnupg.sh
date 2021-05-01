@@ -1,4 +1,3 @@
-brew install gnupg
+#!/bin/bash
 
-# How to verify a gpg signature
-# gpg --verify key file
+brew install gnupg
