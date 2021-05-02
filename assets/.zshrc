@@ -1,3 +1,6 @@
+export LOCAL_SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+export APPLE_ID=$(/usr/libexec/PlistBuddy -c "print :Accounts:0:AccountID" ~/Library/Preferences/MobileMeAccounts.plist)
+
 # Docker-machine activation and env setup
 if [[ $(docker-machine status default) != Running ]]; then
 	docker-machine start default
@@ -108,6 +111,7 @@ source $ZSH/oh-my-zsh.sh
 alias cdc="cd ~/code"
 
 # Docker Machine
+alias dm="docker-machine"
 alias dmenv='eval $(docker-machine env); echo DOCKER_TLS_VERIFY = $DOCKER_TLS_VERIFY; echo DOCKER_HOST = $DOCKER_HOST; echo DOCKER_CERT_PATH = $DOCKER_CERT_PATH; echo DOCKER_MACHINE_NAME = $DOCKER_MACHINE_NAME'
 alias dmls="docker-machine ls"
 alias dmup="docker-machine start"
@@ -121,3 +125,17 @@ alias tzs="$TREZORCTL set"
 alias tzd="$TREZORCTL device"
 alias tzsd="$TREZORCTL device sd-protect"
 alias tzgf="$TREZORCTL get-features"
+
+# Trezor Agent (SSH/GPG Tools)
+alias tza='trezor-agent'
+tssh () {
+	echo "\nTrezor SSH socket setup initiated"
+    echo "Enter SSH identity (e.g. <user>@<domain>): "
+    read id
+    if [ -z "$id" ]; then
+    	echo "No identity provided"
+    	echo "Using APPLE_ID of current user as SSH identity ($APPLE_ID)"
+		id="$APPLE_ID"
+	fi
+    eval "eval $(trezor-agent -d $id)"
+}
