@@ -130,11 +130,11 @@ alias tzgf="$TREZORCTL get-features"
 alias tza='trezor-agent'
 tssh () {
 	echo "\nTrezor SSH socket setup initiated"
-    echo "Enter SSH identity (e.g. <user>@<domain>): "
+    echo "Enter SSH identity (<user>@<domain>): "
     read id
     if [ -z "$id" ]; then
     	echo "No identity provided"
-    	echo "Using APPLE_ID of current user as SSH identity ($APPLE_ID)"
+    	echo "Using APPLE_ID of current user as SSH identity ($APPLE_ID)\n"
 		id="$APPLE_ID"
 	fi
     eval "eval $(trezor-agent -d $id)"
