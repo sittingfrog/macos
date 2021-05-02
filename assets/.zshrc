@@ -1,5 +1,7 @@
 export LOCAL_SSH_AUTH_SOCK=$SSH_AUTH_SOCK
 export APPLE_ID=$(/usr/libexec/PlistBuddy -c "print :Accounts:0:AccountID" ~/Library/Preferences/MobileMeAccounts.plist)
+export APPLE_FIRST_NAME=$(/usr/libexec/PlistBuddy -c "print :Accounts:0:firstName" ~/Library/Preferences/MobileMeAccounts.plist)
+export APPLE_LAST_NAME=$(/usr/libexec/PlistBuddy -c "print :Accounts:0:lastName" ~/Library/Preferences/MobileMeAccounts.plist)
 
 # Docker-machine activation and env setup
 if [[ $(docker-machine status default) != Running ]]; then
@@ -134,8 +136,24 @@ tssh () {
     read id
     if [ -z "$id" ]; then
     	echo "No identity provided"
-    	echo "Using APPLE_ID of current user as SSH identity ($APPLE_ID)\n"
+    	echo "\nUsing APPLE_ID of current user as SSH identity ($APPLE_ID)"
 		id="$APPLE_ID"
 	fi
+	echo "\nRemember to unlock your trezor and watch for on-screen prompts"
     eval "eval $(trezor-agent -d $id)"
+}
+
+tgpg () {
+	echo "\nTrezor GPG setup initiated"
+    echo "Enter GPG identity (First Last <email>): "
+    read id
+    if [ -z "$id" ]; then
+		id="$APPLE_FIRST_NAME $APPLE_LAST_NAME <$APPLE_ID>"
+    	echo "No identity provided"
+    	echo "\nUsing APPLE_ID of current user as GPG identity:"
+    	echo $id
+	fi
+	echo "\nRemember to unlock your trezor and watch for on-screen prompts"
+    eval "eval $(trezor-gpg init $id)"
+    export GNUPGHOME=~/.gnupg/trezor
 }
