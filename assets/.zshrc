@@ -116,3 +116,8 @@ alias dmdn="docker-machine stop"
 # Trezor
 export TREZORCTL='~/code/trezor-firmware/.venv/bin/trezorctl'
 alias tz=$TREZORCTL
+alias tzclear="$TREZORCTL clear-session"
+alias tzs="$TREZORCTL set"
+alias tzd="$TREZORCTL device"
+alias tzsd="$TREZORCTL device sd-protect"
+alias tzgf="$TREZORCTL get-features"
