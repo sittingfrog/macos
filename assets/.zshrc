@@ -157,24 +157,8 @@ config_tgpg () {
     	echo $id
 	fi
 	echo "\nRemember to unlock your trezor and watch for on-screen prompts\n"
-    eval "eval $(trezor-gpg init $id --time=0)"
+    eval "eval $(trezor-gpg init $id)"
     export GNUPGHOME=~/.gnupg/trezor
 }
 
-config_tgpg () {
-	if [ ! -d "~/.gnupg/trezor" ]; then
-		rm -r ~/.gnupg/trezor
-	fi
-	echo "\nTrezor GPG setup initiated"
-    echo "Enter GPG identity (First Last <email>): "
-    read id
-    if [ -z "$id" ]; then
-		id="$APPLE_FIRST_NAME $APPLE_LAST_NAME <$APPLE_ID>"
-    	echo "No identity provided"
-    	echo "\nUsing APPLE_ID of current user as GPG identity:"
-    	echo $id
-	fi
-	echo "\nRemember to unlock your trezor and watch for on-screen prompts\n"
-    eval "eval $(trezor-gpg init $id --time=0)"
-    export GNUPGHOME=~/.gnupg/trezor
-}
+alias tgpg="export GNUPGHOME=~/.gnupg/trezor; gpg"
