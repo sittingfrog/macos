@@ -70,4 +70,4 @@ sudo chmod 755 /usr/local/lib/opensc-pkcs11_NOTALINK.so
 
 opensc-pkcs11.so
 
-
+ssh -I /usr/lib/opensc-pkcs11.so git@github.com
