@@ -1,5 +1,6 @@
 #!/bin/bash
 
+brew install opensc
 brew install ykman
 brew install yubikey-agent
 brew install ykclient
