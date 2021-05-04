@@ -1,39 +1,6 @@
 #!/bin/bash
 
-alias yk='ykman'
-alias ykp='yubico-piv-tool'
 
-
-reset_yubikey_piv () {
-	# Yubico defaults
-	dpin="123456"
-	dpuk="12345678"
-	dmk="010203040506070801020304050607080102030405060708"
-	ykman piv reset
-#    echo 'Enter PUK retry limit (default = 3):'; read pukr;
-#	if [ -z "$pukr" ]; then
-#		pukr=3
-#	fi
-#    echo 'Enter PIN retry limit (default = 3):'; read pinr;
-#	if [ -z "$pinr" ]; then
-#		pinr=3
-#	fi
-#    ykman piv access set-retries --force --pin $dpin --management-key $dmk $pinr $pukr
-#    echo "PUK retry limit is set to $pukr"
-#    echo "PIN retry limit is set to $pinr"
-    ykman piv access change-management-key
-    echo "Default PUK: $dpuk"
-    ykman piv access change-puk
-    echo "Default PIN: $dpin"
-    ykman piv access change-pin
-}
-# Default Keys
-#	PIN:	123456
-#	PUK:	12345678
-#	Management Key:	010203040506070801020304050607080102030405060708
-
-alias yk='ykman'
-alias ykp='yubico-piv-tool'
 ykp -A RSA2048 -H "SHA256" -S "/CN=unused" -s 9a -0 ~/Desktop/g.pem -a generate -a selfsign-certificate
 ykp -v 1 -s 9a -a generate
 
@@ -44,10 +11,12 @@ ykman piv certificates generate --subject "CN=yubico" 9a ~/Desktop/pubkey.pem
 https://ruimarinho.gitbooks.io/yubikey-handbook/content/ssh/authenticating-ssh-with-piv-and-pkcs11-client/
 export MGMT="110203040506070801020304050607080102030405060708"
 
-export KEY_PATH=~/Desktop
-yubico-piv-tool -s 9a -a generate -k --pin-policy=once --touch-policy=always --algorithm=RSA2048 -o $KEY_PATH/public.pem
-yubico-piv-tool -a verify-pin -a selfsign-certificate -s 9a -S '/CN=ssh/' --valid-days=365 -i $KEY_PATH/public.pem -o $KEY_PATH/cert.pem
-yubico-piv-tool -k -a import-certificate -s 9a -i $KEY_PATH/cert.pem
+export desktop_folder=~/Desktop_folder
+yubico-piv-tool -s 9a -a generate -k --pin-policy=once --touch-policy=always --algorithm=RSA2048 -o $desktop_folder/yubikey_public.pem
+yubico-piv-tool -a verify-pin -a selfsign-certificate -s 9a -S '/CN=ssh/' --valid-days=365 -i $desktop_folder/yubikey_public_key.pem -o $desktop_folder/yubikey_certificate.pem
+yubico-piv-tool -k -a import-certificate -s 9a -i $desktop_folder/cert.pem
+
+
 ssh-keygen -D /usr/local/lib/opensc-pkcs11_NOTALINK.so -e
 ssh-add -s /usr/local/lib/opensc-pkcs11_NOTALINK.so
 

@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Trezor
+export TREZORCTL=~/code/trezor-firmware/.venv/bin/trezorctl
+alias tz=$TREZORCTL
+alias tzclear="$TREZORCTL clear-session"
+alias tzs="$TREZORCTL set"
+alias tzd="$TREZORCTL device"
+alias tzsd="$TREZORCTL device sd-protect"
+alias tzgf="$TREZORCTL get-features"
+
+# Trezor Agent (SSH/GPG Tools)
+alias tza='trezor-agent'
+tssh () {
+	echo "\nTrezor SSH socket setup initiated"
+    echo "Enter SSH identity (<user>@<domain>): "
+    read id
+    if [ -z "$id" ]; then
+    	echo "No identity provided"
+    	echo "\nUsing APPLE_ID of current user as SSH identity ($APPLE_ID)"
+		id="$APPLE_ID"
+	fi
+	echo "\nRemember to unlock your trezor and watch for on-screen prompts"
+    eval "eval $(trezor-agent -d $id)"
+}
+
+config_tgpg () {
+	if [ ! -d "~/.gnupg/trezor" ]; then
+		rm -r ~/.gnupg/trezor
+	fi
+	echo "\nTrezor GPG setup initiated"
+    echo "Enter GPG identity (First Last <email>): "
+    read id
+    if [ -z "$id" ]; then
+		id="$APPLE_FIRST_NAME $APPLE_LAST_NAME <$APPLE_ID>"
+    	echo "No identity provided"
+    	echo "\nUsing APPLE_ID of current user as GPG identity:"
+    	echo $id
+	fi
+	echo "\nRemember to unlock your trezor and watch for on-screen prompts\n"
+    eval "eval $(trezor-gpg init $id)"
+    export GNUPGHOME=~/.gnupg/trezor
+}
+
+alias tgpg="export GNUPGHOME=~/.gnupg/trezor; gpg"
