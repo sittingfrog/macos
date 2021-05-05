@@ -7,6 +7,7 @@
 # 	cd ~/code/trezor-firmware
 # 	poetry shell
 pip3 install poetry
+mkdir ~/code/trezor-firmware
 git clone https://github.com/trezor/trezor-firmware ~/code/trezor-firmware
 pushd ~/code/trezor-firmware
 poetry install

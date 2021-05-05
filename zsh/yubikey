@@ -3,6 +3,7 @@
 # Yubikey
 alias yk='ykman'
 alias ykp='yubico-piv-tool'
+alias yssh='ssh -I "/usr/local/lib/opensc-pkcs11.so"'
 
 yk_reset_piv () {
 	# Yubico defaults
