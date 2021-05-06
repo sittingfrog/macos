@@ -1,0 +1,6 @@
+# https://linuxize.com/post/using-the-ssh-config-file/
+# Default configs are stored in: /etc/ssh/ssh_config
+# https://www.man7.org/linux/man-pages/man5/ssh_config.5.html
+
+Host *
+	StrictHostKeyChecking yes # (yes|ask|no)

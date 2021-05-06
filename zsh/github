@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# https://serverfault.com/questions/856194/securely-add-a-host-e-g-github-to-the-ssh-known-hosts-file
+# https://docs.github.com/en/github/authenticating-to-github/githubs-ssh-key-fingerprints
+alias get_github_ssh='ssh-keyscan -t rsa github.com | tee github-key-temp | ssh-keygen -lf -'
+alias set_github_ssh='cat github-key-temp >> ~/.ssh/known_hosts'

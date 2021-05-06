@@ -33,6 +33,7 @@ alias lssh="export SSH_AUTH_SOCK=$LOCAL_SSH_AUTH_SOCK"
 
 # ZSH custom plugins
 source ~/code/macos/zsh/docker-machine
+source ~/code/macos/zsh/github
 source ~/code/macos/zsh/trezor
 source ~/code/macos/zsh/yubikey
 
