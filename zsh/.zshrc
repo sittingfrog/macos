@@ -27,17 +27,16 @@ alias lsa='ls -al'
 # Directories
 alias cdc="cd ~/code"
 
-# SSH
-export LOCAL_SSH_AUTH_SOCK=$SSH_AUTH_SOCK
-alias lssh="export SSH_AUTH_SOCK=$LOCAL_SSH_AUTH_SOCK"
-export SSH_AUTH_SOCK=$YUBIKEY_SSH_AUTH_SOCK # Set yubikey as default ssh agent
-
 # ZSH custom plugins
 source ~/code/macos/zsh/docker-machine
 source ~/code/macos/zsh/github
 source ~/code/macos/zsh/trezor
 source ~/code/macos/zsh/yubikey
 
+# SSH
+export LOCAL_SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+alias lssh="export SSH_AUTH_SOCK=$LOCAL_SSH_AUTH_SOCK"
+export SSH_AUTH_SOCK=$YUBIKEY_SSH_AUTH_SOCK # Set yubikey as default ssh agent
 
 # Docker-machine activation and env setup
 if [[ $(docker-machine status default) != Running ]]; then

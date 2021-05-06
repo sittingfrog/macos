@@ -9,6 +9,7 @@ source ./basic_tools/config_dock.sh
 source ./basic_tools/homebrew.sh #this also installs xcode which includes git
 source ./basic_tools/iterm.sh
 source ./basic_tools/zsh.sh
+source ./basic_tools/ssh.sh
 source ./basic_tools/gnupg.sh
 
 # Keep virtualbox at end of install list as it requires 
