@@ -11,6 +11,7 @@ mkdir ~/code/trezor-firmware
 git clone https://github.com/trezor/trezor-firmware ~/code/trezor-firmware
 pushd ~/code/trezor-firmware
 poetry install
+poetry update
 popd
 
 # Trezor agent installation instructions: https://github.com/romanz/trezor-agent/blob/master/doc/INSTALL.md

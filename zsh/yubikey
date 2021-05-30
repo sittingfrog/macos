@@ -6,6 +6,7 @@ export YUBIKEY_SSH_AUTH_SOCK='/usr/local/var/run/yubikey-agent.sock'
 alias yk='ykman'
 alias ykp='yubico-piv-tool'
 alias yssh='export SSH_AUTH_SOCK=$YUBIKEY_SSH_AUTH_SOCK'
+alias yk_get_piv='ssh-keygen -D /usr/local/lib/opensc-pkcs11.so'
 
 yk_reset_piv () {
 	# Yubico defaults
@@ -22,9 +23,10 @@ yk_reset_piv () {
 
 yk_set_piv() {
 	echo "Generating keys and certificate..."
-	export o_folder=~/Desktop
-	output "Output files will be written to $o_folder"
-	yubico-piv-tool -s 9a -a generate -k --pin-policy=once --touch-policy=always --algorithm=RSA2048 -o $o_folder/yubikey_public.pem
+	o_folder=~/Desktop
+	echo "Output files will be written to $o_folder"
+	yubico-piv-tool -s 9a -a generate -k --pin-policy=once --touch-policy=always --algorithm=RSA2048 -o $o_folder/yubikey_public_key.pem
 	yubico-piv-tool -a verify-pin -a selfsign-certificate -s 9a -S '/CN=piv/' --valid-days=365 -i $o_folder/yubikey_public_key.pem -o $o_folder/yubikey_certificate.pem
 	yubico-piv-tool -k -a import-certificate -s 9a -i $o_folder/yubikey_certificate.pem
+	ssh-keygen -D /usr/local/lib/opensc-pkcs11.so > $o_folder/yubikey_ssh_key.txt
 }

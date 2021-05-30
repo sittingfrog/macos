@@ -2,7 +2,7 @@
 
 brew install ykman
 brew install yubico-piv-tool
-brew install ykclient
+brew install ykclient # potentially deprecated
 brew install pam_yubico
 brew install ykpers
 
