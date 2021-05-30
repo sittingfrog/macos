@@ -20,9 +20,19 @@ tssh () {
     	echo "\nUsing APPLE_ID of current user as SSH identity ($APPLE_ID)"
 		id="$APPLE_ID"
 	fi
-	echo "\nRemember to unlock your trezor and watch for on-screen prompts"
     eval "eval $(trezor-agent -d $id)"
 }
+
+tssh_identity () {
+    echo "Enter SSH identity (<user>@<domain>): "
+    read id
+    if [ -z "$id" ]; then
+    	echo "No identity provided"
+    	echo "\nUsing APPLE_ID of current user as SSH identity ($APPLE_ID)\n"
+		id="$APPLE_ID"
+	fi
+    eval "trezor-agent $id"
+};
 
 config_tgpg () {
 	if [ ! -d "~/.gnupg/trezor" ]; then
