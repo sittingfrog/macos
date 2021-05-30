@@ -12,5 +12,5 @@ Host github
 	IdentityFile ~/.ssh/github.key
 	StrictHostKeyChecking yes
 
-Host *
-	StrictHostKeyChecking yes
+# Host *
+# 	StrictHostKeyChecking yes
