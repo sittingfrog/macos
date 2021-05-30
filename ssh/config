@@ -3,14 +3,8 @@
 # https://www.man7.org/linux/man-pages/man5/ssh_config.5.html
 
 Host github
-	HostName github.com
-	IdentityFile ~/.ssh/github.key
-	StrictHostKeyChecking yes
-
-Host github
 	HostName 140.82.113.3
-	IdentityFile ~/.ssh/github.key
-	StrictHostKeyChecking yes
+	IdentityFile /usr/local/lib/opensc-pkcs11.so
 
 # Host *
 # 	StrictHostKeyChecking yes
