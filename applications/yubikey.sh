@@ -1,5 +1,6 @@
 #!/bin/bash
 
+brew install opensc
 brew install ykman
 brew install yubico-piv-tool
 brew install ykclient # potentially deprecated
