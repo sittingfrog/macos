@@ -25,7 +25,8 @@ source $ZSH/oh-my-zsh.sh
 alias lsa='ls -al'
 
 # Directories
-alias cdc="cd ~/code"
+alias code="cd ~/code"
+alias scratch="cd ~/tmp"
 
 # ZSH custom plugins
 source ~/code/macos/zsh/docker-machine

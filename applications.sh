@@ -7,3 +7,4 @@ source ./applications/chrome.sh
 source ./applications/docker.sh
 source ./applications/yubikey.sh
 source ./applications/trezor.sh
+source ./applications/nightlight.sh
