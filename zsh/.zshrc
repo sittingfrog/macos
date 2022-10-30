@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Basic Commands
-alias lsa='ls -al'
+alias ls='ls -al'
 
 # Directories
 alias code="cd ~/code"
@@ -40,7 +40,7 @@ alias lssh="export SSH_AUTH_SOCK=$LOCAL_SSH_AUTH_SOCK"
 export SSH_AUTH_SOCK=$YUBIKEY_SSH_AUTH_SOCK # Set yubikey as default ssh agent
 
 # Docker-machine activation and env setup
-if [[ $(docker-machine status default) != Running ]]; then
-	docker-machine start default
-fi
-eval $(docker-machine env default)
+#if [[ $(docker-machine status default) != Running ]]; then
+#	docker-machine start default
+#fi
+#eval $(docker-machine env default)
