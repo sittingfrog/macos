@@ -1,7 +1,7 @@
 ### STEP ###
 Open OSX `System Preferences` and leave it open for later use
 Create code directory
-`mkdir ~/code`
+`mkdir ~/src`
 
 ### STEP ###
 Move `osx_setup` repository contents into `~/code/macos`
@@ -17,7 +17,7 @@ Install basic tools
 Install applications
 `source applications.sh`
 
-TODO:
+To be added:
 
 Automatically add favourites in finder bar
 Automatically set default finder view to List type
