@@ -25,8 +25,11 @@ source $ZSH/oh-my-zsh.sh
 alias ls='ls -al'
 
 # Directories
-alias code="cd ~/src"
+alias src="cd ~/src"
 alias scratch="cd ~/tmp"
+
+# Shadowenv
+eval "$(shadowenv init zsh)"
 
 # ZSH custom plugins
 source ~/src/macos/zsh/docker-machine
