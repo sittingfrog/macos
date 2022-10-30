@@ -4,7 +4,7 @@ Create code directory
 `mkdir ~/src`
 
 ### STEP ###
-Move `osx_setup` repository contents into `~/code/macos`
+Move `osx_setup` repository contents into `~/src/macos`
 
 ### STEP ###
 Install basic tools
