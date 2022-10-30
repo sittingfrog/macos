@@ -11,6 +11,7 @@ source ./basic_tools/iterm.sh
 source ./basic_tools/zsh.sh
 # source ./basic_tools/ssh.sh
 source ./basic_tools/gnupg.sh
+source ./basic_tools/shadowenv.sh
 
 # Keep virtualbox at end of install list as it requires 
 #	system restart and it is required to install docker
