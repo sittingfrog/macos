@@ -25,14 +25,14 @@ source $ZSH/oh-my-zsh.sh
 alias ls='ls -al'
 
 # Directories
-alias code="cd ~/code"
+alias code="cd ~/src"
 alias scratch="cd ~/tmp"
 
 # ZSH custom plugins
-source ~/code/macos/zsh/docker-machine
-source ~/code/macos/zsh/github
-source ~/code/macos/zsh/trezor
-source ~/code/macos/zsh/yubikey
+source ~/src/macos/zsh/docker-machine
+source ~/src/macos/zsh/github
+source ~/src/macos/zsh/trezor
+source ~/src/macos/zsh/yubikey
 
 # SSH
 export LOCAL_SSH_AUTH_SOCK=$SSH_AUTH_SOCK
